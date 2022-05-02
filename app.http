@@ -1,0 +1,12 @@
+
+post http://localhost:8989/student/create
+Content-Type: application/application/json
+
+{
+  "Name":"manoj",
+  "Email":"manoj@gmail.com",
+  "Password":"12345"
+
+}
+
+###
