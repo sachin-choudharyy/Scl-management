@@ -11,9 +11,9 @@ module.exports = {
                 Education,
                 DateOfJoining,
                 ContactNo,
-                // ref:{addharCard}
-            } = req.body;
 
+            } = req.body;
+            const { AadharCard, PanCard } = req.files;
             const data = await new subAdminModel({
                 Name,
                 Email,
@@ -22,9 +22,12 @@ module.exports = {
                 Education,
                 DateOfJoining,
                 ContactNo,
-                // ref:{addharCard}
+                AadharCard,
+                PanCard,
+                // AccountNO:Document.AccountNO 
             })
             const result = await data.save()
+
             res.json({
                 msg: "data crete",
                 data: result
@@ -32,7 +35,7 @@ module.exports = {
         } catch (err) {
             console.log(err);
             res.status(400).json({
-                message: "crete subAdmin successfully",
+                message: "failed to create",
                 data: {}
             })
         }

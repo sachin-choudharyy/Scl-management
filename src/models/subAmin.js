@@ -28,17 +28,20 @@ const data = new Schema({
       type:String,
       required:true
   },
-  ref:{
-      type:Object,
-      required:false
-  },
+ 
+AadharCard:{
+    type:Array
+},
+PanCard:{
+    type:Array
+},
   Education:{
       type:String,
       required:true
   },
   DateOfJoining:{
       type:Date,
-      required:true
+      required:false
   }
 })    
 
