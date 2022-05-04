@@ -4,6 +4,8 @@ const subAdminModel = require('../models/subAmin')
 module.exports = {
     create: async (req, res) => {
         try {
+           
+            if(req.decode.role === "Admin"){
             const { Name,
                 Email,
                 Password,
@@ -32,11 +34,17 @@ module.exports = {
                 msg: "data crete",
                 data: result
             })
+          }else{
+            res.status(400).json({
+                message: "you are not authorized to create sudAdmins",
+                data: {}
+            })
+          }  
         } catch (err) {
             console.log(err);
-            res.status(400).json({
+            res.status(500).json({
                 message: "failed to create",
-                data: {}
+                errpr:err
             })
         }
     },

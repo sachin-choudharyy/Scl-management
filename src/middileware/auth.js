@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-var atob = require('atob');
+
 
 
 const verifyToken = async (req, res, next) => {
@@ -8,9 +8,8 @@ const verifyToken = async (req, res, next) => {
     try {
         if (token) {
             const match = jwt.verify(token, "mySecretKey");
-            const decode = atob(token.split('.')[1]);    //for decode jwt 
-            console.log(decode, "decode");
-            req.decode = decode;
+            // console.log(match, "decode");
+            req.decode = match;
             next();
         }
         else {
