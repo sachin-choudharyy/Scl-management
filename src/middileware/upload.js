@@ -1,5 +1,5 @@
-
-var multer = require('multer');
+ 
+const  multer = require('multer');
 const path = require('path')
 
 const imageStorage = multer.diskStorage({
@@ -17,10 +17,10 @@ const imageStorage = multer.diskStorage({
 const fileUpload = multer({
         storage: imageStorage,
         limits: {
-                fileSize: 1000000 // 1000000 Bytes = 1 MB
+                fileSize: 1000000 // 1000000 Bytes = 10 MB
         },
         fileFilter(req, file, cb) {
-                if (!file.originalname.match(/\.(png|jpg|xlsx)$/)) {
+                if (!file.originalname.match(/\.(png|jpg|xlsx|jpeg)$/)) {
                         // upload only png and jpg format
                         return cb(new Error('Please upload a Image'))
                 }

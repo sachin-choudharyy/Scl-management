@@ -6,6 +6,7 @@ const studentRouter = require('./src/routes/student')
 const adminRouter = require('./src/routes/adminRoute.js')
 const subAdminRouter=require('./src/routes/subAdminRoute')
 const facultyRouter = require('./src/routes/facultyRoute')
+const departmentRouter = require('./src/routes/departmentRoutes')
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use('/student', studentRouter);
 app.use('/admin', adminRouter);
 app.use('/subadmin', subAdminRouter);
 app.use('/faculty', facultyRouter);
+app.use('/department',departmentRouter);
 
 
 const port = process.env.PORT;

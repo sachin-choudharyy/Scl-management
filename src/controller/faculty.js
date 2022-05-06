@@ -4,10 +4,12 @@ const { get } = require('../routes/student');
 module.exports = {
     create: async (req, res) => {
         try {
+            console.log(req.decode.role);
             if (req.decode.role === "Admin") {
-                const { Name, Email, Password, Role, Department, Sallery, DateOfJoining, ContactNo, Education } = req.body;
-                if (Name && Email && Password && Role && Department) {
-                    const data = await new facultyModel({ Name, Email, Password, Role, Department, Sallery, DateOfJoining, ContactNo, Education })
+                const { Name, Email, Password,  Department, Sallery, DateOfJoining, ContactNo, Education } = req.body;
+                 
+                if (Name && Email && Password  && Department) {
+                    const data = await new facultyModel({ Name, Email, Password, Department, Sallery, DateOfJoining, ContactNo, Education })
                     data.Password = await bcrypt.hash(data.Password, 10)
                     const stddata = await data.save();
                     res.status(200).json({
@@ -107,6 +109,22 @@ module.exports = {
           })
         }
     
+      },
+      getdepartment :async(req,res)=>{
+          try {
+               
+                const  Department  = req.query.Department;
+             
+             const aws = await facultyModel.find({Department}).count()          
+                
+                   
+                  res.json({success:true,data:aws}) 
+          } catch (error) {
+              console.log(error);
+              res.json({success:false,message:error.message}) 
+
+          }
       }
 
 }
+

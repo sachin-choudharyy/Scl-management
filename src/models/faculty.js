@@ -43,5 +43,5 @@ const data = new Schema({
   }
 })    
 
-var facultyModel = mongoose.model('faculty', data);
+const  facultyModel = mongoose.model('faculty', data);
 module.exports = facultyModel;

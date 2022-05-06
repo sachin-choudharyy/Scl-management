@@ -30,10 +30,10 @@ const data = new Schema({
   },
  
 AadharCard:{
-    type:Array
+    type:String
 },
 PanCard:{
-    type:Array
+    type:String
 },
   Education:{
       type:String,
@@ -45,5 +45,5 @@ PanCard:{
   }
 })    
 
-var subAdminModel = mongoose.model('subAdmin', data);
+const subAdminModel = mongoose.model('subAdmin', data);
 module.exports = subAdminModel;

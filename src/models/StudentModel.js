@@ -8,7 +8,7 @@ const studentData = new Schema({
   Password:{type:String,required:true},
   FatherName:{type:String,required:true},
   Address:{type:String,required:true},
-  Class:{type:String,required:true},
+  Class:{type:Number,required:true},
   Birthdate:{type:Date,required:true},
   ContactNo:{type:Number,required:true},
   Grade:{type:String,
@@ -25,5 +25,5 @@ const studentData = new Schema({
 });
 
 
-var studentModel = mongoose.model('Student', studentData);
+const  studentModel = mongoose.model('Student', studentData);
 module.exports = studentModel;

@@ -9,5 +9,7 @@ name: 'PanCard', maxCount: 1
 }]),subAdminctrl.create)
 Router.get('/getSubAdmin',subAdminctrl.getSubAdmin)
 Router.patch('/update/:id',subAdminctrl.update)
+Router.get('/getstudent/:email',authToken,subAdminctrl.getstudent)
+Router.post('/login',subAdminctrl.LoginSubAdmin)
 
 module.exports=Router;
