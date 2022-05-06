@@ -11,7 +11,7 @@ module.exports = {
       const Marksheet = req.url;
 
       if (req.decode.role === "Admin") {
-        
+
          const studentdata = await new studentModel({ Name, Email, Password, FatherName, Address, Class, Birthdate, ContactNo, Grade, Marksheet })
         if (studentdata) {
           studentdata.Password = await bcrypt.hash(studentdata.Password, 10)
@@ -40,6 +40,7 @@ module.exports = {
 
   getStudents: async (req, res) => {
     try {
+    
       const getdata = await studentModel.find()
       if (getdata) {
         res.status(200).json({

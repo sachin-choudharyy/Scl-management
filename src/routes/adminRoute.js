@@ -2,10 +2,10 @@
 
 const express = require('express')
 const Router = express.Router();
-const adminctrl = require('../controller/adminctrl')
+const userctrl = require('../controller/userCtrl')
 const authToken = require('../middileware/auth')
 
-Router.post("/create",adminctrl.Create)
-Router.post("/login",adminctrl.Login)
+Router.post("/create",userctrl.Create)
+Router.post("/login",userctrl.Login)
 
 module.exports=Router; 

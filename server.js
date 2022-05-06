@@ -3,9 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose')
 // const  bodyParser = require('body-parser')
 const studentRouter = require('./src/routes/student')
-const adminRouter = require('./src/routes/adminRoute.js')
+const userRouter = require('./src/routes/adminRoute.js')
 const subAdminRouter=require('./src/routes/subAdminRoute')
 const facultyRouter = require('./src/routes/facultyRoute')
+const feesRouter = require('./src/routes/feesRoute')
 
 const app = express();
 
@@ -24,10 +25,11 @@ mongoose.connect(url).then(() => {
 
 
 
+app.use('/user', userRouter);
 app.use('/student', studentRouter);
-app.use('/admin', adminRouter);
 app.use('/subadmin', subAdminRouter);
 app.use('/faculty', facultyRouter);
+app.use('/fees', feesRouter);
 
 
 const port = process.env.PORT;

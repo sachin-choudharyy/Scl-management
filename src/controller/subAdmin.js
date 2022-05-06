@@ -4,7 +4,6 @@ const subAdminModel = require('../models/subAmin')
 module.exports = {
     create: async (req, res) => {
         try {
-           
             if(req.decode.role === "Admin"){
             const { Name,
                 Email,
@@ -16,6 +15,8 @@ module.exports = {
 
             } = req.body;
             const { AadharCard, PanCard } = req.files;
+            // console.log(AadharCard[0].path)
+
             const data = await new subAdminModel({
                 Name,
                 Email,
@@ -24,8 +25,8 @@ module.exports = {
                 Education,
                 DateOfJoining,
                 ContactNo,
-                AadharCard,
-                PanCard,
+                AadharCard:AadharCard[0].path,
+                PanCard : PanCard[0].path,
                 // AccountNO:Document.AccountNO 
             })
             const result = await data.save()
@@ -115,5 +116,5 @@ module.exports = {
                 error: err
             })
         }
-    }
+    },
 }
